@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace PivotFromLoadfile
+namespace NetReceivables
 {
     //TODO: add "get column"
     class DelimitedFile
@@ -113,7 +113,7 @@ namespace PivotFromLoadfile
             }
             catch (InvalidOperationException e)
             {
-                throw new InvalidOperationException(string.Format("{0} is not a valid encoding", encoding));
+                throw new InvalidOperationException(string.Format("{0} is not a valid encoding", encoding), e);
             }
 
             return Encoding.GetEncoding(encodingInfo.Name);

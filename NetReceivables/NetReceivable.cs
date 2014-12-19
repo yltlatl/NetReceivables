@@ -26,17 +26,13 @@ namespace NetReceivables
 
         public NetReceivable(Invoice invoice, Bill bill)
         {
-            if (invoice == null) throw new ArgumentNullException("invoice", "Null invoice");
-            Invoices = new List<Invoice> { invoice };
-            if (bill == null) throw new ArgumentNullException("bill", "Null bill");
-            Bills = new List<Bill> { bill };
+            Invoices = invoice == null ? new List<Invoice>() : new List<Invoice> { invoice };
+            Bills = bill == null ? new List<Bill>() : new List<Bill> { bill };
         }
 
         #endregion
 
         #region Public Properties
-
-        public string CompositeId { get; private set; }
 
         public List<Invoice> Invoices { get; set; }
 

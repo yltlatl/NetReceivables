@@ -8,6 +8,17 @@ namespace NetReceivables
 {
     class Bill : AccountingItem
     {
+        #region Constructors
+
+        public Bill()
+        { }
+
+        public Bill(string id)
+            : base(id)
+        { }
+
+        #endregion
+
         #region Public Properties
 
         public string Vendor { get; set; }

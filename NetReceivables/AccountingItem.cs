@@ -8,6 +8,20 @@ namespace NetReceivables
 {
     abstract class AccountingItem
     {
+        #region Constructors
+
+        public AccountingItem()
+        { }
+
+        public AccountingItem(string id)
+        {
+            if (string.IsNullOrEmpty(id)) throw new ArgumentException("id is null or empty.");
+            Id = id;
+        }
+
+        #endregion
+
+
         #region Fields
 
         private string _id;
@@ -22,27 +36,27 @@ namespace NetReceivables
 
         #region Properties
 
-        protected string Id
+        public string Id
         {
             get { return _id; }
             set { _id = value; }
         }
 
-        protected double Amount
+        public double Amount
         {
             get { return _amount; }
             set { _amount = value; }
         }
 
-        protected DateTime Date
+        public DateTime Date
         {
             get { return _date; }
             set { _date = value; }
         }
 
-        protected DateTime DueDate { get; set; }
+        public DateTime DueDate { get; set; }
 
-        protected int PastDue { get; private set; }
+        public int PastDue { get; private set; }
 
         public void SetPastDue()
         {
